@@ -1,58 +1,11 @@
-<?php
-error_reporting(E_ALL & ~ E_NOTICE);
-session_start();
-?>
 <html>
 <head>
 	<title>心电监护系统</title>
 	<meta charset="utf-8">
 	<script src="./js/jquery.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/bootstrap-responsive.css">
 	<link type="text/css" href="css/main.css" rel="stylesheet" />
 </head>
 <body>
-<?php
-	if($_REQUEST['username'] == 'root' && $_REQUEST['password'] == 'xindianjianhu'){
-		$_SESSION['login'] = true;
-	}
-	elseif($_REQUEST['logout'] == 'sure'){
-		$_SESSION['login'] = false;
-	}
-	if(!$_SESSION['login']){
-?>
-<div class="container-fluid">
-	<div class="row span12">
-		<div class="span3 offset4 hero-unit">
-	      <h1>心电监护系统</h1>
-	    </div>	    
-	    <div class="span4 offset3">
-	      <form action="index.php" method="post" class="form-horizontal">
-	        <div class="control-group">
-	          <label class="control-label" for="username">账号:</label>
-	          <div class="controls">
-	            <input class="span3" type="text" id="username" name="username" placeholder="Account">
-	          </div>
-	        </div>
-	        <div class="control-group">
-	          <label class="control-label" for="password">密码:</label>
-	          <div class="controls">
-	            <input class="span3" type="password" id="password" name="password" placeholder="Password">
-	          </div>
-	        </div>
-	        <div class="control-group span4 offset1">
-	            <input type="submit" id="login" class="btn btn-large btn-success span4" value="登录">
-	        </div>
-	      </form>
-	    </div>
-	</div>
-    
-</div>
-<?php
-	}
-	else{
-		
-?>
 <div class="container">
 	<div class="top">
 		<div class="logo"><a href="http://www.xidian.edu.cn"><img src="img/xidian.jpg" width="283" height="54" /></a></div>
@@ -101,7 +54,7 @@ session_start();
 ?>
 	</select>
 <?php
-	//error_reporting(E_ALL & ~ E_NOTICE);
+	error_reporting(E_ALL & ~ E_NOTICE);
 	if($_REQUEST['user']){
 ?>
 	<span>选择数据：</span>
@@ -160,12 +113,6 @@ session_start();
 	<input type="button" id="l" name="l" value="2倍">
 	<input type="button" id="xl" name="xl" value="4倍">
 	<input type="button" id="xxl" name="xxl" value="10倍">
-</div>
-<div class="logout">
-	<form action="index.php" method="post">
-		<input type="hidden" name="logout" value="sure">
-		<input type="submit" value="退出">
-	</form>
 </div>
 <script type="text/javascript">
 	var control = 1;
@@ -293,8 +240,5 @@ session_start();
 
 </script>
 </div>
-<?php
-	}
-?>
 </body>
 </html>
